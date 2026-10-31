@@ -1,0 +1,449 @@
+
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#f7f3ef">
+  <meta name="description" content="Fabiola Gaytán | Beauty Room Studio. Estilista profesional y especialista en colorimetría en Jardín Balbuena, CDMX.">
+  <title>Fabiola Gaytán | Beauty Room Studio</title>
+  <link rel="icon" type="image/png" href="./favicon.png">
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600&family=Italiana&display=swap" rel="stylesheet">
+
+  <style>
+    * { box-sizing: border-box; }
+
+    :root {
+      --black: #111;
+      --cream: #f7f3ef;
+      --line: #d8d0c9;
+    }
+
+    body {
+      margin: 0;
+      background: var(--cream);
+      color: var(--black);
+      font-family: 'Montserrat', sans-serif;
+      font-weight: 400;
+      text-align: center;
+    }
+
+    .page {
+      max-width: 680px;
+      margin: auto;
+      background: var(--cream);
+      overflow: hidden;
+    }
+
+    .hero {
+      position: relative;
+      min-height: 610px;
+      height: 78svh;
+      max-height: 790px;
+      background:
+        linear-gradient(to bottom,
+          rgba(0,0,0,.43),
+          rgba(0,0,0,.08) 30%,
+          rgba(0,0,0,.22) 55%,
+          rgba(0,0,0,.64)),
+        url("./portada.JPEG") center 42% / cover no-repeat;
+      color: white;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: space-between;
+      padding: 42px 24px 110px;
+    }
+
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+      width: 100%;
+      justify-content: center;
+    }
+
+    .brand::before,
+    .brand::after {
+      content: "";
+      height: 1px;
+      background: rgba(255,255,255,.8);
+      flex: 1;
+      max-width: 65px;
+    }
+
+    .brand span {
+      font-size: clamp(10px, 2.6vw, 16px);
+      letter-spacing: .34em;
+      font-weight: 400;
+      white-space: nowrap;
+    }
+
+    .hero-content {
+      width: 100%;
+      margin: auto 0;
+    }
+
+    .signature {
+      display: block;
+      width: 100%;
+      max-width: 510px;
+      margin: 0 auto 25px;
+      filter: brightness(0) invert(1);
+    }
+
+    .profession {
+      margin: 0;
+      font-size: clamp(12px, 2.7vw, 17px);
+      line-height: 2;
+      letter-spacing: .28em;
+      font-weight: 400;
+    }
+
+    .curve {
+      position: absolute;
+      bottom: -1px;
+      left: 0;
+      width: 100%;
+      height: 95px;
+      fill: var(--cream);
+    }
+
+    .content {
+      padding: 8px 26px 60px;
+    }
+
+    .services {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      margin: 0 0 48px;
+    }
+
+    .service {
+      padding: 8px 4px;
+      position: relative;
+    }
+
+    .service:not(:last-child)::after {
+      content: "";
+      position: absolute;
+      right: 0;
+      top: 20px;
+      height: 75px;
+      width: 1px;
+      background: var(--line);
+    }
+
+    .service svg {
+      width: 39px;
+      height: 39px;
+      stroke: currentColor;
+      stroke-width: 1.4;
+      fill: none;
+      stroke-linecap: round;
+      stroke-linejoin: round;
+      margin-bottom: 12px;
+    }
+
+    .service p {
+      margin: 0;
+      font-size: clamp(9px, 2.2vw, 13px);
+      letter-spacing: .07em;
+    }
+
+    .actions {
+      display: grid;
+      gap: 15px;
+    }
+
+    .button {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      gap: 12px;
+      min-height: 62px;
+      padding: 14px;
+      text-decoration: none;
+      color: var(--black);
+      border: 1px solid var(--black);
+      border-radius: 40px;
+      font-size: clamp(11px, 2.4vw, 14px);
+      font-weight: 400;
+      letter-spacing: .13em;
+      transition: transform .2s, background .2s;
+    }
+
+    .button:active { transform: scale(.98); }
+
+    .button svg {
+      width: 23px;
+      height: 23px;
+      fill: none;
+      stroke: currentColor;
+      stroke-width: 1.7;
+      stroke-linecap: round;
+      stroke-linejoin: round;
+      flex-shrink: 0;
+    }
+
+    .button.primary {
+      min-height: 74px;
+      background: var(--black);
+      color: white;
+      font-size: clamp(13px, 3vw, 18px);
+      letter-spacing: .23em;
+    }
+
+    .button.primary .arrow {
+      margin-left: auto;
+    }
+
+    .button.primary .calendar {
+      margin-left: auto;
+    }
+
+    .secondary-actions {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 12px;
+    }
+
+    .secondary-actions .button {
+      padding: 10px 6px;
+      gap: 7px;
+      letter-spacing: .05em;
+    }
+
+    .section-title {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+      margin: 65px 0 30px;
+    }
+
+    .section-title::before,
+    .section-title::after {
+      content: "";
+      flex: 1;
+      height: 1px;
+      background: #777;
+    }
+
+    .section-title h2 {
+      font-family: 'Italiana', Georgia, serif;
+      font-size: clamp(27px, 6vw, 43px);
+      font-weight: 400;
+      line-height: 1.1;
+      margin: 0;
+      white-space: nowrap;
+    }
+
+    .gallery {
+      display: flex;
+      overflow-x: auto;
+      scroll-snap-type: x mandatory;
+      gap: 13px;
+      scrollbar-width: none;
+      padding-bottom: 10px;
+    }
+
+    .gallery::-webkit-scrollbar { display: none; }
+
+    .gallery img {
+      width: 48%;
+      min-width: 48%;
+      aspect-ratio: 3 / 4;
+      object-fit: cover;
+      border-radius: 22px;
+      scroll-snap-align: start;
+    }
+
+    .location {
+      padding-top: 45px;
+    }
+
+    .location h2 {
+      font-family: 'Italiana', Georgia, serif;
+      font-weight: 400;
+      font-size: 34px;
+      margin-bottom: 10px;
+    }
+
+    .location p {
+      font-size: 12px;
+      letter-spacing: .12em;
+      line-height: 1.8;
+    }
+
+    .location .button {
+      max-width: 310px;
+      margin: 22px auto 0;
+    }
+
+    footer {
+      margin-top: 65px;
+      color: #777;
+      font-size: 10px;
+      letter-spacing: .22em;
+    }
+
+    @media (max-width: 380px) {
+      .hero { min-height: 540px; }
+      .content { padding-left: 17px; padding-right: 17px; }
+      .secondary-actions .button { font-size: 10px; }
+      .secondary-actions .button svg { width: 19px; height: 19px; }
+      .section-title { gap: 8px; }
+    }
+  </style>
+</head>
+
+<body>
+  <main class="page">
+
+    <header class="hero">
+      <div class="brand">
+        <span>BEAUTY ROOM STUDIO</span>
+      </div>
+
+      <div class="hero-content">
+        <img
+          class="signature"
+          src="./Firma caligráfica Fabiola Gaytán.png"
+          alt="Fabiola Gaytán"
+        >
+
+        <p class="profession">
+          Estilista Profesional<br>
+          Especialista en Colorimetría
+        </p>
+      </div>
+
+      <svg class="curve" viewBox="0 0 680 95" preserveAspectRatio="none" aria-hidden="true">
+        <path d="M0 80 C180 -15 430 115 680 0 L680 95 L0 95 Z"/>
+      </svg>
+    </header>
+
+    <div class="content">
+
+      <section class="services" aria-label="Especialidades">
+
+        <div class="service">
+          <svg viewBox="0 0 48 48" aria-hidden="true">
+            <circle cx="12" cy="37" r="5"/>
+            <circle cx="36" cy="37" r="5"/>
+            <path d="M15 33 L35 6 M33 33 L13 6 M21 23 L27 23"/>
+          </svg>
+          <p>Corte</p>
+        </div>
+
+        <div class="service">
+          <svg viewBox="0 0 48 48" aria-hidden="true">
+            <path d="M7 25 Q24 34 41 25 L37 39 H11 Z"/>
+            <path d="M7 25 Q24 16 41 25"/>
+            <path d="M30 21 L37 5 L41 7 L35 23"/>
+            <path d="M18 39 V43 M30 39 V43"/>
+          </svg>
+          <p>Color</p>
+        </div>
+
+        <div class="service">
+          <svg viewBox="0 0 48 48" aria-hidden="true">
+            <path d="M13 42 C5 30 35 30 23 6"/>
+            <path d="M24 42 C16 30 46 30 34 6"/>
+            <path d="M34 42 C26 30 48 25 43 9"/>
+          </svg>
+          <p>Tratamientos</p>
+        </div>
+
+        <div class="service">
+          <svg viewBox="0 0 48 48" aria-hidden="true">
+            <path d="M15 5 L18 15 L28 18 L18 21 L15 31 L12 21 L2 18 L12 15 Z"/>
+            <path d="M36 24 L39 31 L46 34 L39 37 L36 44 L33 37 L26 34 L33 31 Z"/>
+          </svg>
+          <p>Acabados</p>
+        </div>
+
+      </section>
+
+      <section class="actions" aria-label="Contacto">
+
+        <a
+          class="button primary"
+          href="https://wa.me/525518668749?text=Hola%2C%20Fabiola.%20Me%20gustar%C3%ADa%20agendar%20una%20cita%20en%20Beauty%20Room%20Studio."
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          <svg class="calendar" viewBox="0 0 24 24" aria-hidden="true">
+            <rect x="3" y="5" width="18" height="16" rx="2"/>
+            <path d="M7 2 V8 M17 2 V8 M3 10 H21"/>
+          </svg>
+          <span>AGENDAR MI CITA</span>
+          <svg class="arrow" viewBox="0 0 24 24" aria-hidden="true">
+            <path d="M9 4 L17 12 L9 20"/>
+          </svg>
+        </a>
+
+        <div class="secondary-actions">
+          <a
+            class="button"
+            href="https://www.instagram.com/fabiola_gaytan_23/"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            <svg viewBox="0 0 24 24" aria-hidden="true">
+              <rect x="2" y="2" width="20" height="20" rx="5"/>
+              <circle cx="12" cy="12" r="4"/>
+              <circle cx="18" cy="6" r="1" fill="currentColor" stroke="none"/>
+            </svg>
+            <span>INSTAGRAM</span>
+          </a>
+
+          <a
+            class="button"
+            href="data:text/vcard;charset=utf-8,BEGIN%3AVCARD%0AVERSION%3A3.0%0AFN%3AFabiola%20Gayt%C3%A1n%0AORG%3ABeauty%20Room%20Studio%0ATITLE%3AEstilista%20Profesional%0ATEL%3BTYPE%3DCELL%3A%2B525518668749%0AURL%3Ahttps%3A%2F%2Fgaytanbeauty.github.io%2F%0AEND%3AVCARD"
+            download="Fabiola-Gaytan.vcf"
+          >
+            <svg viewBox="0 0 24 24" aria-hidden="true">
+              <rect x="3" y="2" width="18" height="20" rx="2"/>
+              <circle cx="12" cy="9" r="3"/>
+              <path d="M6 19 C6 14 18 14 18 19"/>
+            </svg>
+            <span>GUARDAR CONTACTO</span>
+          </a>
+        </div>
+
+      </section>
+
+      <section aria-label="Galería del estudio">
+        <div class="section-title">
+          <h2>Conoce nuestro estudio</h2>
+        </div>
+
+        <div class="gallery">
+          <img src="./STUDIO-1.jpg" alt="Interior de Beauty Room Studio" loading="lazy">
+          <img src="./STUDIO-2.jpg" alt="Espacio de Beauty Room Studio" loading="lazy">
+          <img src="./STUDIO-3.jpg" alt="Instalaciones del estudio" loading="lazy">
+          <img src="./STUDIO-4.jpg" alt="Detalles del estudio" loading="lazy">
+        </div>
+      </section>
+
+      <section class="location">
+        <h2>Visítanos</h2>
+        <p>JARDÍN BALBUENA · CDMX</p>
+
+        <a
+          class="button"
+          href="https://www.google.com/maps/search/?api=1&query=Jard%C3%ADn%20Balbuena%2C%20Ciudad%20de%20M%C3%A9xico"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          VER UBICACIÓN
+        </a>
+      </section>
+
+      <footer>FABIOLA GAYTÁN · BEAUTY ROOM STUDIO</footer>
+
+    </div>
+  </main>
+</body>
+</html>
