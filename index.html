@@ -1,0 +1,181 @@
+
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Fabiola Gaytán | Beauty Room Studio</title>
+<style>
+* { box-sizing: border-box; }
+body {
+  margin: 0;
+  background: #fff;
+  color: #171717;
+  font-family: Arial, sans-serif;
+  text-align: center;
+}
+main {
+  max-width: 570px;
+  margin: auto;
+  padding: 40px 20px;
+}
+.brand {
+  letter-spacing: 4px;
+  font-size: 11px;
+  color: #666;
+}
+.signature {
+  width: 85%;
+  max-width: 340px;
+  margin: 30px auto 10px;
+  display: block;
+  mix-blend-mode: multiply;
+}
+h1, h2 {
+  font-family: Georgia, serif;
+  font-weight: normal;
+}
+h1 { font-size: 40px; margin-bottom: 8px; }
+h2 { font-size: 28px; }
+.subtitle { color: #555; font-size: 14px; }
+.buttons { margin: 35px 0; }
+.btn {
+  display: block;
+  padding: 16px;
+  margin: 12px 0;
+  border: 1px solid #222;
+  border-radius: 5px;
+  color: #111;
+  text-decoration: none;
+  font-size: 13px;
+  font-weight: bold;
+  letter-spacing: 1px;
+}
+.primary { background: #111; color: white; }
+section { margin-top: 45px; }
+.gallery {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 10px;
+}
+.gallery img {
+  width: 100%;
+  aspect-ratio: 3/4;
+  object-fit: cover;
+  border-radius: 5px;
+}
+iframe {
+  width: 100%;
+  height: 240px;
+  border: 0;
+  border-radius: 6px;
+}
+.note { font-size: 12px; color: #777; }
+footer {
+  margin-top: 45px;
+  font-size: 11px;
+  color: #777;
+}
+</style>
+</head>
+<body>
+<main>
+  <div class="brand">BEAUTY ROOM STUDIO</div>
+
+  <img
+    class="signature"
+    src="Firma%20caligr%C3%A1fica%20Fabiola%20Gayt%C3%A1n.png"
+    alt="Firma de Fabiola Gaytán">
+
+  <h1>Fabiola Gaytán</h1>
+  <p class="subtitle">
+    Estilista Profesional · Especialista en Colorimetría
+  </p>
+
+  <div class="buttons">
+    <a class="btn primary"
+       href="https://wa.me/525518668749?text=Hola%2C%20Fabiola.%20Me%20gustar%C3%ADa%20agendar%20una%20cita."
+       target="_blank">
+      ✦ AGENDAR MI CITA
+    </a>
+
+    <a class="btn"
+       href="https://www.instagram.com/fabiola_gaytan_23/"
+       target="_blank">
+      INSTAGRAM
+    </a>
+
+    <a class="btn" id="contacto" href="#">
+      + GUARDAR CONTACTO
+    </a>
+  </div>
+
+  <section>
+    <h2>Conoce nuestro estudio</h2>
+    <p class="subtitle">Un espacio pensado para consentirte.</p>
+
+    <div class="gallery">
+      <a href="STUDIO-1.jpg" target="_blank">
+        <img src="STUDIO-1.jpg" alt="Salón, fotografía 1">
+      </a>
+      <a href="STUDIO-2.jpg" target="_blank">
+        <img src="STUDIO-2.jpg" alt="Salón, fotografía 2">
+      </a>
+      <a href="STUDIO-3.jpg" target="_blank">
+        <img src="STUDIO-3.jpg" alt="Salón, fotografía 3">
+      </a>
+      <a href="STUDIO-4.jpg" target="_blank">
+        <img src="STUDIO-4.jpg" alt="Salón, fotografía 4">
+      </a>
+    </div>
+  </section>
+
+  <section>
+    <h2>Ubicación</h2>
+    <p>📍 Jardín Balbuena, CDMX</p>
+
+    <iframe
+      title="Mapa de Jardín Balbuena"
+      src="https://www.google.com/maps?q=Jard%C3%ADn%20Balbuena%2C%20CDMX&output=embed"
+      loading="lazy">
+    </iframe>
+
+    <a class="btn"
+       href="https://www.google.com/maps/search/?api=1&query=Jard%C3%ADn%20Balbuena%2C%20CDMX"
+       target="_blank">
+      📍 VER UBICACIÓN
+    </a>
+
+    <p class="note">
+      La dirección exacta se comparte al confirmar tu cita.
+    </p>
+  </section>
+
+  <footer>FABIOLA GAYTÁN · BEAUTY ROOM STUDIO</footer>
+</main>
+
+<script>
+const datos = [
+  "BEGIN:VCARD",
+  "VERSION:3.0",
+  "N:Gaytán;Fabiola;;;",
+  "FN:Fabiola Gaytán",
+  "ORG:Beauty Room Studio",
+  "TITLE:Estilista Profesional",
+  "TEL;TYPE=CELL:+525518668749",
+  "URL:https://www.instagram.com/fabiola_gaytan_23/",
+  "END:VCARD"
+].join("\r\n");
+
+document.getElementById("contacto").onclick = function(e) {
+  e.preventDefault();
+  const archivo = new Blob([datos], {type: "text/vcard"});
+  const enlace = document.createElement("a");
+  enlace.href = URL.createObjectURL(archivo);
+  enlace.download = "Fabiola-Gaytan.vcf";
+  enlace.click();
+  setTimeout(() => URL.revokeObjectURL(enlace.href), 1000);
+};
+</script>
+</body>
+</html>
